@@ -2,11 +2,22 @@
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Hero from "../components/Hero.astro";
+import Background from "../layouts/Background.astro";
+import ProductsList from "../components/ProductsList.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-  <Navbar />
-  <Hero />
+  <Background className="bg-h">
+    <Navbar />
+    <Hero />
+  </Background>
+  <Background className="bg-p-w">
+    <ProductsList className="m-t-120" />
+  </Background>
 </Layout>
 
-<style></style>
+<style is:global>
+  .m-t-120 {
+    margin-top: 120px;
+  }
+</style>

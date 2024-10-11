@@ -16,10 +16,8 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="bg-j-b">
-    <div class="container w-100">
-      <slot />
-    </div>
+  <body>
+    <slot />
   </body>
 </html>
 <style is:global>
@@ -114,20 +112,13 @@ const { title } = Astro.props;
 
   /* Utility classes */
 
-  body {
-    padding-left: 11.81%;
-    padding-right: 11.81%;
-  }
-
-  .container {
-    max-width: 1100px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
   /* Flex-box */
   .flex {
     display: flex;
+  }
+
+  .flex-d-c {
+    flex-direction: column;
   }
 
   .align-c {
@@ -172,6 +163,10 @@ const { title } = Astro.props;
     font-size: 1.5rem;
   }
 
+  .font-s-18 {
+    font-size: 1.8rem;
+  }
+
   .font-s-56 {
     font-size: 5.6rem;
   }
@@ -209,6 +204,7 @@ const { title } = Astro.props;
     --peach: #fbaf85;
     --pure-white: #ffffff;
     --black: #000000;
+    --hero: #131313;
   }
 
   .color-c {
@@ -239,6 +235,9 @@ const { title } = Astro.props;
   .bg-s-w {
     background-color: var(--snow-white);
   }
+  .bg-s-g {
+    background-color: var(--soft-gray);
+  }
   .bg-p {
     background-color: var(--peach);
   }
@@ -248,8 +247,37 @@ const { title } = Astro.props;
   .bg-b {
     background-color: var(--black);
   }
+  .bg-h {
+    background-color: var(--hero);
+  }
 
   /* Margin top */
+  .m-t-a {
+    margin-top: auto;
+  }
+  .m-r-a {
+    margin-right: auto;
+  }
+  .m-b-a {
+    margin-bottom: auto;
+  }
+  .m-l-a {
+    margin-left: auto;
+  }
+
+  .m-t-15 {
+    margin-top: 15px;
+  }
+  .m-r-15 {
+    margin-right: 15px;
+  }
+  .m-b-15 {
+    margin-bottom: 15px;
+  }
+  .m-l-15 {
+    margin-left: 15px;
+  }
+
   .m-t-24 {
     margin-top: 24px;
   }
@@ -301,5 +329,10 @@ const { title } = Astro.props;
   }
   .p-l-30 {
     padding-left: 30px;
+  }
+
+  /* Border */
+  .border-r-8 {
+    border-radius: 8px;
   }
 </style>

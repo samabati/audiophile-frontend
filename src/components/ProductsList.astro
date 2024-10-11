@@ -1,0 +1,129 @@
+---
+import ListHeadphones from "../assets/home/list-headphones.svg";
+import ListSpeaker from "../assets/home/list-speakers.png";
+import ListEarphones from "../assets/home/list-earphones.svg";
+import RightArrow from "../assets/home/right-arrow.svg";
+import { Image } from "astro:assets";
+import Blur from "../assets/home/blur.svg";
+
+interface Props {
+  className: string;
+}
+const { className } = Astro.props;
+---
+
+<section class=`flex ${className}`>
+  <article class="flex w-100">
+    <Image
+      src={ListHeadphones}
+      alt="mark1-headphones"
+      height={160}
+      width={123}
+      class="product-image"
+    />
+    <Image src={Blur} alt="mark1-headphones" class="blur" />
+    <div class="border-r-8
+      bg-s-g w-100 flex align-c flex-d-c p-b-30">
+      <h2 class="color-b font-s-18 bold m-t-a">HEADPHONES</h2>
+      <button
+        id="headphones"
+        class="color-b font-s-13 bold font-ls-1 m-t-15 flex align-c"
+      >
+        SHOP <Image src={RightArrow} alt="right-arrow" /></button
+      >
+      <p></p>
+    </div>
+  </article>
+  <article class="flex w-100">
+    <Image
+      src={ListSpeaker}
+      alt="mark1-headphones"
+      height={146}
+      width={123}
+      class="product-image"
+    />
+    <Image src={Blur} alt="mark1-headphones" class="blur" />
+    <div class="border-r-8
+      bg-s-g w-100 flex align-c flex-d-c p-b-30">
+      <h2 class="color-b font-s-18 bold m-t-a">SPEAKERS</h2>
+      <button
+        id="speakers"
+        class="color-b font-s-13 bold font-ls-1 m-t-15 flex align-c"
+      >
+        SHOP <Image src={RightArrow} alt="right-arrow" /></button
+      >
+      <p></p>
+    </div>
+  </article>
+  <article class="flex w-100">
+    <Image
+      src={ListEarphones}
+      alt="mark1-headphones"
+      height={146}
+      width={123}
+      class="product-image"
+    />
+    <Image src={Blur} alt="mark1-headphones" class="blur" />
+    <div class="border-r-8
+      bg-s-g w-100 flex align-c flex-d-c p-b-30">
+      <h2 class="color-b font-s-18 bold m-t-a">EARPHONES</h2>
+      <button
+        id="earphones"
+        class="color-b font-s-13 bold font-ls-1 m-t-15 flex align-c"
+      >
+        SHOP <Image src={RightArrow} alt="right-arrow" /></button
+      >
+      <p></p>
+    </div>
+  </article>
+</section>
+
+<style>
+  section {
+    gap: 30px;
+    height: 284px;
+  }
+  div {
+    margin-top: auto;
+    height: 204px;
+  }
+  article {
+    position: relative;
+  }
+  .product-image {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+  }
+  h1 {
+    letter-spacing: 1.268px;
+  }
+  button {
+    opacity: 0.5;
+    gap: 13px;
+  }
+  .blur {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 100px;
+  }
+</style>
+
+<script>
+  const headphones = document.getElementById("headphones");
+  const speakers = document.getElementById("speakers");
+  const earphones = document.getElementById("earphones");
+
+  headphones?.addEventListener("click", () => {
+    window.location.href = "/headphones";
+  });
+
+  speakers?.addEventListener("click", () => {
+    window.location.href = "/speakers";
+  });
+
+  earphones?.addEventListener("click", () => {
+    window.location.href = "/earphones";
+  });
+</script>

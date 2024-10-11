@@ -1,22 +1,22 @@
 ---
 import Button from "./Button.astro";
 import { Image } from "astro:assets";
-import headphones from "../assets/home/headphones.png";
+import headphones from "../assets/home/headphones.svg";
 ---
 
-<section class="outline flex fade-in">
-  <article class="outline color-p-w">
-    <h1 class="font-s-14 font-ls-10 outline">New Product</h1>
-    <h2 class="font-s-56 bold font-lh-58 font-ls-2 outline m-t-24">
+<section class="flex fade-in">
+  <article class="color-p-w">
+    <h1 class="font-s-14 font-ls-10">New Product</h1>
+    <h2 class="font-s-56 bold font-lh-58 font-ls-2 m-t-24">
       XX99 Mark II Headphones
     </h2>
-    <p class="font-s-15 font-lh-25 m-t-24 outline">
+    <p class="font-s-15 font-lh-25 m-t-24">
       Experience natural, lifelike audio and exceptional build quality made for
       the passionate music enthusiast.
     </p>
     <Button className="hero-button" text="SEE PRODUCT" />
   </article>
-  <Image src={headphones} alt="headphones" class="hero-image" />
+  <Image id="mySvg" src={headphones} alt="headphones" class="hero-image" />
 </section>
 
 <style>
@@ -34,13 +34,16 @@ import headphones from "../assets/home/headphones.png";
     margin-top: 40px;
   }
   .hero-image {
-    outline: 2px solid blue;
     margin-top: -100px;
     width: 100%;
     min-width: 0;
     max-width: 100%;
     height: auto;
     object-fit: cover;
+  }
+
+  #mySvg {
+    fill: none; /* This removes the background */
   }
 
   .fade-in {
