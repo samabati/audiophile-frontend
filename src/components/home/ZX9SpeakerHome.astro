@@ -1,0 +1,52 @@
+---
+interface Props {
+  className: string;
+}
+const { className } = Astro.props;
+import { Image } from "astro:assets";
+import SpeakerImage from "../../assets/home/zx9-speaker-home.svg";
+import Button from "../shared/Button.astro";
+---
+
+<section class=`bg-c border-r-8 flex ${className}`>
+  <Image class="speaker-image" src={SpeakerImage} alt="speaker-image" />
+  <article>
+    <h2 class="color-p-w font-s-56 bold font-lh-59 font-ls-2">ZX9 SPEAKER</h2>
+    <p class="color-p-w font-s-15 font-lh-25">
+      Upgrade to premium speakers that are phenomenally built to deliver truly
+      remarkable sound.
+    </p>
+    <Button background="bg-j-b speakerhome-button" text="SEE PRODUCT" />
+  </article>
+</section>
+
+<style>
+  section {
+    padding-left: 120px;
+    height: 560px;
+    background-image: url("../assets/home/pattern-circles.svg");
+    background-repeat: no-repeat;
+    background-position: -150px 40px;
+    gap: 140px;
+    padding-right: 95px;
+  }
+
+  h2 {
+    margin-top: 133px;
+  }
+
+  p {
+    margin-top: 24px;
+    opacity: 0.75;
+  }
+
+  .speaker-image {
+    margin-top: 96px;
+  }
+</style>
+
+<style is:global>
+  .speakerhome-button {
+    margin-top: 40px;
+  }
+</style>

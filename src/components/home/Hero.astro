@@ -1,7 +1,7 @@
 ---
-import Button from "./Button.astro";
+import Button from "../shared/Button.astro";
 import { Image } from "astro:assets";
-import headphones from "../assets/home/headphones.svg";
+import headphones from "../../assets/home/headphones.svg";
 ---
 
 <section class="flex fade-in">
@@ -14,7 +14,7 @@ import headphones from "../assets/home/headphones.svg";
       Experience natural, lifelike audio and exceptional build quality made for
       the passionate music enthusiast.
     </p>
-    <Button className="hero-button" text="SEE PRODUCT" />
+    <Button background="hero-button bg-c" text="SEE PRODUCT" />
   </article>
   <Image id="mySvg" src={headphones} alt="headphones" class="hero-image" />
 </section>
@@ -34,16 +34,11 @@ import headphones from "../assets/home/headphones.svg";
     margin-top: 40px;
   }
   .hero-image {
-    margin-top: -100px;
+    margin-top: -94px;
     width: 100%;
     min-width: 0;
     max-width: 100%;
-    height: auto;
     object-fit: cover;
-  }
-
-  #mySvg {
-    fill: none; /* This removes the background */
   }
 
   .fade-in {

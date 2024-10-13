@@ -1,9 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Navbar from "../components/Navbar.astro";
-import Hero from "../components/Hero.astro";
+import Navbar from "../components/shared/Navbar.astro";
+import Hero from "../components/home/Hero.astro";
 import Background from "../layouts/Background.astro";
-import ProductsList from "../components/ProductsList.astro";
+import ProductsList from "../components/shared/ProductsList.astro";
+import ZX9SpeakerHome from "../components/home/ZX9SpeakerHome.astro";
+import ZX7SpeakerHome from "../components/home/ZX7SpeakerHome.astro";
+import YX1EarphonesHome from "../components/home/YX1EarphonesHome.astro";
+import TextImageSplit from "../components/shared/TextImageSplit.astro";
+import Footer from "../components/shared/Footer.astro";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -13,11 +18,31 @@ import ProductsList from "../components/ProductsList.astro";
   </Background>
   <Background className="bg-p-w">
     <ProductsList className="m-t-120" />
+    <ZX9SpeakerHome className="m-t-170" />
+    <ZX7SpeakerHome className="m-t-50" />
+    <YX1EarphonesHome className="m-t-50" />
+    <TextImageSplit className="m-t-200 m-b-200" />
   </Background>
+  <Background className="bg-j-b"><Footer /></Background>
 </Layout>
 
 <style is:global>
   .m-t-120 {
     margin-top: 120px;
+  }
+  .m-b-200 {
+    margin-bottom: 200px;
+  }
+  .m-t-200 {
+    margin-top: 200px;
+  }
+  .m-t-170 {
+    margin-top: 170px;
+  }
+  .m-t-50 {
+    margin-top: 50px;
+  }
+  .m-t-200 {
+    margin-top: 200px;
   }
 </style>

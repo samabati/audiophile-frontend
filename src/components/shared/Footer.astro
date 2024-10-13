@@ -1,0 +1,44 @@
+---
+import { Image } from "astro:assets";
+import Logo from "../../assets/home/logo.svg";
+interface Props {
+  className?: string;
+}
+
+const { className } = Astro.props;
+---
+
+<footer class=` ${className}`>
+  <div id="orange-border"></div>
+  <section class="flex just-s-b">
+    <Image src={Logo} width={143} height={25} alt="footer-logo" />
+    <nav class="flex color-p-w">
+      <a href="/" class="font-s-13 font-ls-2 bold font-lh-25">HOME</a>
+      <a href="/headphones" class="font-s-13 font-ls-2 bold font-lh-25"
+        >HEADPHONES</a
+      >
+      <a href="/speakers" class="font-s-13 font-ls-2 bold font-lh-25"
+        >SPEAKERS</a
+      >
+      <a href="/earphones" class="font-s-13 font-ls-2 bold font-lh-25"
+        >EARPHONES</a
+      >
+    </nav>
+  </section>
+</footer>
+
+<style>
+  #orange-border {
+    height: 4px;
+    width: 101px;
+    background-color: var(--copper);
+  }
+
+  nav {
+    gap: 34px;
+  }
+
+  section {
+    margin-top: 75px;
+  }
+</style>

@@ -1,0 +1,46 @@
+---
+interface Props {
+  className: string;
+}
+
+const { className } = Astro.props;
+---
+
+<section class=`flex outline ${className}`>
+  <article class="flex flex-d-c just-c w-100">
+    <h2 class="color-b bold font-s-40">
+      BRINGING YOU THE <span>BEST</span> AUDIO GEAR
+    </h2>
+    <p class="color-b font-s-15 font-lh-25">
+      Located at the heart of New York City, Audiophile is the premier store for
+      high end headphones, earphones, speakers, and audio accessories. We have a
+      large showroom and luxury demonstration rooms available for you to browse
+      and experience a wide range of our products. Stop by our store to meet
+      some of the fantastic people who make Audiophile the best place to buy
+      your portable audio equipment.
+    </p>
+  </article>
+  <article class="outline border-r-8 w-100"></article>
+</section>
+
+<style>
+  section {
+    height: 588px;
+    gap: 125px;
+  }
+  span {
+    color: var(--copper);
+  }
+  h2 {
+    letter-spacing: 1.429px;
+  }
+  p {
+    opacity: 0.5;
+  }
+  article:nth-of-type(1) {
+    gap: 32px;
+  }
+  article:nth-of-type(2) {
+    background-image: url("/src/assets/home/text-image.svg");
+  }
+</style>
