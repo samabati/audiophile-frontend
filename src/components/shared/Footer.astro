@@ -1,6 +1,9 @@
 ---
 import { Image } from "astro:assets";
 import Logo from "../../assets/home/logo.svg";
+import FB from "../../assets/home/fb.svg";
+import Insta from "../../assets/home/insta.svg";
+import Twitter from "../../assets/home/twitter.svg";
 interface Props {
   className?: string;
 }
@@ -25,9 +28,30 @@ const { className } = Astro.props;
       >
     </nav>
   </section>
+  <section class="flex w-100">
+    <p class="color-p-w font-s-15 font-lh-25">
+      Audiophile is an all in one stop to fulfill your audio needs. We're a
+      small team of music lovers and sound specialists who are devoted to
+      helping you get the most out of personal audio. Come and visit our demo
+      facility - we’re open 7 days a week.
+    </p>
+    <div class="flex w-100">
+      <a href="https://facebook.com"> <Image src={FB} alt="facebook" /> </a>
+      <a href="https://instagram.com">
+        <Image src={Insta} alt="instagram" />
+      </a>
+      <a href="https://twitter.com"> <Image src={Twitter} alt="twitter" /> </a>
+    </div>
+  </section>
+  <p class="color-p-w font-s-15 font-lh-25 bold">
+    Copyright 2021. All Rights Reserved
+  </p>
 </footer>
 
 <style>
+  footer {
+    padding-bottom: 48px;
+  }
   #orange-border {
     height: 4px;
     width: 101px;
@@ -36,6 +60,20 @@ const { className } = Astro.props;
 
   nav {
     gap: 34px;
+  }
+
+  div {
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 16px;
+  }
+
+  footer > p {
+    margin-top: 56px;
+  }
+
+  p {
+    opacity: 0.5;
   }
 
   section {

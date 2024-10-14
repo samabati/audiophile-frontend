@@ -1,37 +1,41 @@
 ---
 import Button from "../shared/Button.astro";
-interface Props {
-  className: string;
-}
-
-const { className } = Astro.props;
 ---
 
-<section class=`flex ${className}`>
-  <article class="w-100 border-r-8 outline"></article>
-  <article class="w-100 border-r-8 outline bg-s-g">
-    <h2 class="color-b font-s-28 bold font-ls-2">YX1 EARPHONES</h2>
-    <Button
-      background="bg-trans m-t-32"
-      textColor="color-b"
-      text="SEE PRODUCT"
-      border="border-1-b"
-    />
+<section class="flex">
+  <article class="w-100 border-r-8"></article>
+  <article class="w-100 border-r-8 bg-s-g">
+    <div>
+      <h2 class="color-b font-s-28 bold font-ls-2">YX1 EARPHONES</h2>
+      <Button
+        background="bg-trans m-t-32"
+        textColor="color-b"
+        text="SEE PRODUCT"
+        border="border-1-b"
+      />
+    </div>
   </article>
 </section>
 
 <style>
   section {
+    margin-top: 50px;
     gap: 32px;
     height: 320px;
   }
   article:nth-of-type(1) {
     background-image: url("/src/assets/home/yx1-earphones-home.svg");
+    background-position: center;
   }
   article:nth-of-type(2) {
-    padding-top: 101px;
-    padding-bottom: 101px;
-    padding-left: 95px;
-    padding-right: 95px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 58.25rem) {
+    section {
+      margin-top: 30px;
+    }
   }
 </style>

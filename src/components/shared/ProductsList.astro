@@ -19,7 +19,7 @@ const { className } = Astro.props;
       alt="mark1-headphones"
       height={160}
       width={123}
-      class="product-image"
+      class="product-image mark1"
     />
     <Image src={Blur} alt="mark1-headphones" class="blur" />
     <div class="border-r-8
@@ -40,7 +40,7 @@ const { className } = Astro.props;
       alt="mark1-headphones"
       height={146}
       width={123}
-      class="product-image"
+      class="product-image speakers"
     />
     <Image src={Blur} alt="mark1-headphones" class="blur" />
     <div class="border-r-8
@@ -61,7 +61,7 @@ const { className } = Astro.props;
       alt="mark1-headphones"
       height={146}
       width={123}
-      class="product-image"
+      class="product-image earphones"
     />
     <Image src={Blur} alt="mark1-headphones" class="blur" />
     <div class="border-r-8
@@ -107,6 +107,33 @@ const { className } = Astro.props;
     left: 50%;
     transform: translate(-50%);
     margin-top: 100px;
+  }
+
+  /* Tablet */
+  @media (max-width: 58.25rem) {
+    section {
+      height: 217px;
+      gap: 10px;
+    }
+    .blur {
+      margin-top: 40px;
+    }
+    div {
+      height: 165px;
+      padding-bottom: 22px;
+    }
+    .mark1 {
+      margin-top: -30px;
+      width: 80px;
+    }
+    .speakers {
+      width: 84px;
+      height: auto;
+    }
+    .earphones {
+      margin-top: -20px;
+      width: 84px;
+    }
   }
 </style>
 

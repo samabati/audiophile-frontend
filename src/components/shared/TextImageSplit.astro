@@ -6,7 +6,7 @@ interface Props {
 const { className } = Astro.props;
 ---
 
-<section class=`flex outline ${className}`>
+<section class=`flex ${className}`>
   <article class="flex flex-d-c just-c w-100">
     <h2 class="color-b bold font-s-40">
       BRINGING YOU THE <span>BEST</span> AUDIO GEAR
@@ -20,7 +20,7 @@ const { className } = Astro.props;
       your portable audio equipment.
     </p>
   </article>
-  <article class="outline border-r-8 w-100"></article>
+  <article class="border-r-8 w-100"></article>
 </section>
 
 <style>
@@ -42,5 +42,6 @@ const { className } = Astro.props;
   }
   article:nth-of-type(2) {
     background-image: url("/src/assets/home/text-image.svg");
+    background-position: center;
   }
 </style>
