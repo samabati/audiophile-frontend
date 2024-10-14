@@ -19,36 +19,29 @@ import Footer from "../components/shared/Footer.astro";
   <Background className="bg-s-w homepage-padding">
     <ProductsList />
     <ZX9SpeakerHome />
-    <ZX7SpeakerHome className="m-t-50" />
-    <YX1EarphonesHome className="m-t-50" />
-    <TextImageSplit className="m-t-200" />
+    <ZX7SpeakerHome />
+    <YX1EarphonesHome />
+    <TextImageSplit className="text-image-split-home-margin" />
   </Background>
   <Background className="bg-j-b"><Footer /></Background>
 </Layout>
 
 <style is:global>
   .homepage-padding {
-    padding-top: 140px;
+    padding-top: 120px;
     padding-bottom: 200px;
   }
-  .m-t-200 {
+  .text-image-split-home-margin {
     margin-top: 200px;
   }
-  .m-t-170 {
-    margin-top: 170px;
-  }
-  .m-t-50 {
-    margin-top: 50px;
-  }
-  .m-t-200 {
-    margin-top: 200px;
-  }
-
   /* Tablet */
   @media (max-width: 58.25rem) {
     .homepage-padding {
       padding-top: 100px;
       padding-bottom: 100px;
+    }
+    .text-image-split-home-margin {
+      margin-top: 96px;
     }
   }
 </style>

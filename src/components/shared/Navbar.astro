@@ -1,11 +1,17 @@
 ---
 import { Image } from "astro:assets";
+import hamburger from "../../assets/home/hamburger.svg";
 import logo from "../../assets/home/logo.svg";
 import cart from "../../assets/home/cart.svg";
 ---
 
 <nav class="w-100 flex align-c just-s-b">
-  <Image src={logo} alt="logo" />
+  <div>
+    <button id="hamburger">
+      <Image src={hamburger} alt="hamburger" />
+    </button>
+    <Image src={logo} alt="logo" />
+  </div>
 
   <section class="flex">
     <a class="color-p-w font-s-13 bold font-lh-25 font-ls-2" href="/home"
@@ -37,5 +43,25 @@ import cart from "../../assets/home/cart.svg";
   }
   section {
     gap: 34px;
+  }
+
+  #hamburger {
+    display: none;
+  }
+
+  /* Tablet */
+  @media (max-width: 58.25rem) {
+    section {
+      display: none;
+    }
+
+    #hamburger {
+      display: block;
+    }
+
+    div {
+      display: flex;
+      gap: 42px;
+    }
   }
 </style>

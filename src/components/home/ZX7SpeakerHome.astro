@@ -1,10 +1,8 @@
 ---
-import { Image } from "astro:assets";
-import ZX7SpeakerImage from "../../assets/home/zx7-speaker-home.svg";
 import Button from "../shared/Button.astro";
 ---
 
-<section class="border-r-8">
+<section class="flex align-c border-r-8">
   <div>
     <h2 class="color-b font-s-28 font-ls-2 bold">ZX7 SPEAKER</h2>
     <Button
@@ -19,18 +17,18 @@ import Button from "../shared/Button.astro";
 <style>
   section {
     margin-top: 50px;
-    padding-top: 101px;
-    padding-bottom: 101px;
-    padding-left: 95px;
-    padding-right: 95px;
+    padding-left: 8.64%;
     height: 320px;
     background: url("/src/assets/home/zx7-speaker-home.svg");
     background-position: center;
   }
 
+  /* Tablet */
   @media (max-width: 58.25rem) {
     section {
       margin-top: 30px;
+      background: url("/src/assets/home/zx7-speaker-home-tablet.svg");
+      background-size: cover;
     }
   }
 </style>
