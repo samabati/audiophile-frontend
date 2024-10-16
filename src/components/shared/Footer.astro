@@ -14,7 +14,13 @@ const { className } = Astro.props;
 <footer class=` ${className}`>
   <div id="orange-border"></div>
   <section class="flex just-s-b">
-    <Image src={Logo} width={143} height={25} alt="footer-logo" />
+    <Image
+      src={Logo}
+      width={143}
+      height={25}
+      alt="footer-logo"
+      class="footer-logo"
+    />
     <nav class="flex color-p-w">
       <a href="/" class="font-s-13 font-ls-2 bold font-lh-25">HOME</a>
       <a href="/headphones" class="font-s-13 font-ls-2 bold font-lh-25"
@@ -100,6 +106,8 @@ const { className } = Astro.props;
     flex-shrink: 0;
   }
 
+  /* Tablet */
+
   @media (max-width: 58.25rem) {
     section:nth-last-of-type(2) > div {
       display: none;
@@ -110,10 +118,43 @@ const { className } = Astro.props;
     section:nth-of-type(1) {
       flex-direction: column;
       gap: 32px;
+      margin-top: 60px;
     }
 
     section:nth-of-type(2) {
       margin-top: 32px;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 30rem) {
+    section:nth-of-type(1) {
+      margin-top: 52px;
+      gap: 48px;
+    }
+    footer {
+      padding-bottom: 38px;
+    }
+    .footer-logo {
+      margin: auto;
+    }
+    nav {
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    section:nth-of-type(2) {
+      margin-top: 48px;
+      text-align: center;
+    }
+    section:nth-of-type(3) {
+      flex-direction: column;
+      margin-top: 48px;
+      text-align: center;
+      gap: 48px;
+    }
+    #mobile-logos {
+      justify-content: center;
     }
   }
 </style>

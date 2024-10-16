@@ -44,4 +44,21 @@ import Button from "../shared/Button.astro";
       background-size: cover;
     }
   }
+
+  /*Mobile*/
+  @media (max-width: 30rem) {
+    section {
+      margin-top: 24px;
+      gap: 24px;
+      flex-direction: column;
+      height: 100%;
+    }
+    article {
+      height: 200px;
+    }
+    article:nth-of-type(2) {
+      justify-content: flex-start;
+      padding-left: 7.34%;
+    }
+  }
 </style>

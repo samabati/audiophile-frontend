@@ -68,10 +68,37 @@ import Button from "../shared/Button.astro";
       word-spacing: 100vw;
     }
   }
+
+  /* Mobile */
+  @media (max-width: 30rem) {
+    section {
+      margin-top: 120px;
+      height: 600px;
+      background-size: cover;
+      background-position: center;
+      background-position-y: -140px;
+      gap: 32px;
+    }
+
+    .speaker-image {
+      width: 172px;
+    }
+
+    h2 {
+      font-size: 3.6rem;
+    }
+  }
 </style>
 
 <style is:global>
   .speakerhome-button {
     margin-top: 40px;
+  }
+
+  /*Mobile*/
+  @media (max-width: 30rem) {
+    .speakerhome-button {
+      margin-top: 24px;
+    }
   }
 </style>
