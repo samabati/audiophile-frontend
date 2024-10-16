@@ -14,6 +14,8 @@ import Footer from "../components/shared/Footer.astro";
 <Layout title="Welcome to Astro.">
   <Background className="bg-h">
     <Navbar />
+  </Background>
+  <Background className="bg-h hero-padding">
     <Hero />
   </Background>
   <Background className="bg-s-w homepage-padding">
@@ -55,6 +57,13 @@ import Footer from "../components/shared/Footer.astro";
 
     .text-image-split-home-margin {
       margin-top: 120px;
+    }
+  }
+
+  /*Hero tablet/mobile*/
+  @media (max-width: 34rem) {
+    .hero-padding {
+      padding: 0px !important;
     }
   }
 </style>
