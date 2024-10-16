@@ -10,7 +10,7 @@ import cart from "../../assets/home/cart.svg";
     <button id="hamburger">
       <Image src={hamburger} alt="hamburger" />
     </button>
-    <Image src={logo} alt="logo" />
+    <Image src={logo} alt="logo" class="logo" />
   </div>
 
   <section class="flex">
@@ -62,6 +62,18 @@ import cart from "../../assets/home/cart.svg";
     div {
       display: flex;
       gap: 42px;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 30rem) {
+    div {
+      gap: 0px;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .logo {
+      margin: auto;
     }
   }
 </style>

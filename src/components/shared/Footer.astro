@@ -43,12 +43,24 @@ const { className } = Astro.props;
       <a href="https://twitter.com"> <Image src={Twitter} alt="twitter" /> </a>
     </div>
   </section>
-  <p class="color-p-w font-s-15 font-lh-25 bold">
-    Copyright 2021. All Rights Reserved
-  </p>
+  <section class="flex just-s-b">
+    <p class="color-p-w font-s-15 font-lh-25 bold">
+      Copyright 2021. All Rights Reserved
+    </p>
+    <div id="mobile-logos" class="flex w-100">
+      <a href="https://facebook.com"> <Image src={FB} alt="facebook" /> </a>
+      <a href="https://instagram.com">
+        <Image src={Insta} alt="instagram" />
+      </a>
+      <a href="https://twitter.com"> <Image src={Twitter} alt="twitter" /> </a>
+    </div>
+  </section>
 </footer>
 
 <style>
+  #mobile-logos {
+    display: none;
+  }
   footer {
     padding-bottom: 48px;
   }
@@ -68,22 +80,40 @@ const { className } = Astro.props;
     gap: 16px;
   }
 
-  footer > p {
-    margin-top: 56px;
-  }
-
   p {
     opacity: 0.5;
   }
 
-  section {
+  section:nth-of-type(1) {
     margin-top: 75px;
   }
 
+  section:nth-of-type(2) {
+    margin-top: 35px;
+  }
+
+  section:nth-of-type(3) {
+    margin-top: 56px;
+  }
+
+  section:nth-of-type(3) > p {
+    flex-shrink: 0;
+  }
+
   @media (max-width: 58.25rem) {
+    section:nth-last-of-type(2) > div {
+      display: none;
+    }
+    #mobile-logos {
+      display: flex;
+    }
     section:nth-of-type(1) {
       flex-direction: column;
       gap: 32px;
+    }
+
+    section:nth-of-type(2) {
+      margin-top: 32px;
     }
   }
 </style>
