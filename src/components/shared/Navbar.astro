@@ -10,13 +10,13 @@ import cart from "../../assets/home/cart.svg";
     <button id="hamburger">
       <Image src={hamburger} alt="hamburger" />
     </button>
-    <Image src={logo} alt="logo" class="logo" />
+    <a href="/" id="logo">
+      <Image src={logo} alt="logo" class="logo" />
+    </a>
   </div>
 
   <section class="flex">
-    <a class="color-p-w font-s-13 bold font-lh-25 font-ls-2" href="/home"
-      >HOME</a
-    >
+    <a class="color-p-w font-s-13 bold font-lh-25 font-ls-2" href="/">HOME</a>
     <a class="color-p-w font-s-13 bold font-lh-25 font-ls-2" href="/headphones"
       >HEADPHONES</a
     >
@@ -28,7 +28,7 @@ import cart from "../../assets/home/cart.svg";
     >
   </section>
 
-  <button>
+  <button id="cart">
     <Image src={cart} alt="cart" />
   </button>
 </nav>
@@ -49,6 +49,15 @@ import cart from "../../assets/home/cart.svg";
     display: none;
   }
 
+  #logo {
+    padding: 0px;
+  }
+
+  #cart {
+    width: 23px;
+    padding: 0px;
+  }
+
   /* Tablet */
   @media (max-width: 58.25rem) {
     nav {
@@ -61,6 +70,8 @@ import cart from "../../assets/home/cart.svg";
 
     #hamburger {
       display: block;
+      padding: 0;
+      width: 23px;
     }
 
     div {
@@ -76,6 +87,7 @@ import cart from "../../assets/home/cart.svg";
       justify-content: space-between;
       width: 100%;
     }
+    #logo,
     .logo {
       margin: auto;
     }

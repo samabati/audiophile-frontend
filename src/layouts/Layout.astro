@@ -14,7 +14,7 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>Audiophile | {title}</title>
   </head>
   <body class="bg-j-b">
     <slot />
@@ -102,9 +102,7 @@ const { title } = Astro.props;
     background-color: transparent;
     cursor: pointer;
   }
-  a:visited {
-    color: inherit;
-  }
+
   a:focus,
   a:active {
     outline: none;
@@ -185,12 +183,20 @@ const { title } = Astro.props;
     line-height: 5.8rem;
   }
 
+  .font-lh-44 {
+    line-height: 4.4rem;
+  }
+
   .bold {
     font-weight: 700;
   }
 
   .font-ls-1 {
     letter-spacing: 1px;
+  }
+
+  .font-ls-1429 {
+    letter-spacing: 1.429px;
   }
 
   .font-ls-2 {
@@ -287,6 +293,19 @@ const { title } = Astro.props;
     margin-left: 15px;
   }
 
+  .m-t-16 {
+    margin-top: 16px;
+  }
+  .m-r-16 {
+    margin-right: 16px;
+  }
+  .m-b-16 {
+    margin-bottom: 16px;
+  }
+  .m-l-16 {
+    margin-left: 16px;
+  }
+
   .m-t-24 {
     margin-top: 24px;
   }
@@ -351,6 +370,19 @@ const { title } = Astro.props;
   }
   .p-l-30 {
     padding-left: 30px;
+  }
+
+  .p-t-98 {
+    padding-top: 98px;
+  }
+  .p-r-98 {
+    padding-right: 98px;
+  }
+  .p-b-98 {
+    padding-bottom: 98px;
+  }
+  .p-l-98 {
+    padding-left: 98px;
   }
 
   /* Border */

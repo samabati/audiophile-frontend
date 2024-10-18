@@ -1,0 +1,174 @@
+---
+import { CardDisplay } from "../../types/enums/CardDisplay";
+import { Image } from "astro:assets";
+import { type Product } from "../../types/interface/product";
+import Shadow from "../../assets/category/shadow.svg";
+import ProductImage from "../../assets/category/product-image.svg";
+import Button from "./Button.astro";
+import { Category } from "../../types/enums/Category";
+interface Props {
+  category: Category;
+  display: CardDisplay;
+  product: Product;
+}
+
+const { display = CardDisplay.LEFT, product, category } = Astro.props;
+---
+
+<div class="padding">
+  <section class=`w-100 flex just-s-b ${display}`>
+    <div class="border-r-8 bg-s-g">
+      <Image src={ProductImage} alt="product-image" class="product-image" />
+      <Image src={Shadow} alt="product-shadow" class="product-shadow" />
+    </div>
+    <article class="flex flex-d-c just-c">
+      {
+        product.new && (
+          <h2 class="new-product color-c font-s-14 font-ls-10">NEW PRODUCT</h2>
+        )
+      }
+      <h2
+        class="product-title color-b font-s-40 bold font-lh-44 font-ls-1429 m-t-16"
+      >
+        {product.name.toUpperCase()}
+      </h2>
+      <p class="color-b font-s-15 font-lh-25 m-t-32">
+        {product.description}
+      </p>
+      <Button
+        id={product.slug}
+        background="bg-c category-product-button"
+        text="SEE PRODUCT"
+      />
+    </article>
+  </section>
+</div>
+
+<script define:vars={{ product, category }}>
+  const button = document.getElementById(product.slug);
+  button?.addEventListener("click", () => {
+    window.location.href = `${category}/${product.slug}`;
+  });
+</script>
+
+<style>
+  .padding {
+    padding-top: 160px;
+  }
+  section {
+    height: 56rem;
+  }
+  section > div {
+    width: 49.09%;
+    position: relative;
+  }
+  article {
+    width: 40.45%;
+  }
+  p {
+    opacity: 0.5;
+  }
+  .product-image {
+    top: 65px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .product-shadow {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* RIGHT STYLING */
+
+  .RIGHT > div {
+    order: 2;
+  }
+
+  /* Tablet */
+  @media (max-width: 58.25rem) {
+    .RIGHT > div {
+      order: 1;
+    }
+    .RIGHT > article {
+      order: 2;
+    }
+
+    .padding {
+      padding-top: 120px;
+    }
+    section {
+      flex-direction: column;
+      height: 100%;
+      gap: 52px;
+    }
+    section > div {
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      height: 35.2rem;
+      width: 100%;
+    }
+
+    .product-image {
+      max-height: 100%;
+      max-width: 100%;
+      width: 220px;
+      position: static;
+      transform: none;
+    }
+
+    .product-shadow {
+      bottom: 0px;
+    }
+
+    article {
+      text-align: center;
+      align-items: center;
+      width: 100%;
+      height: 30.2rem;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 30rem) {
+    .padding {
+      padding-top: 64px;
+    }
+
+    section {
+      gap: 32px;
+    }
+
+    article {
+      height: 100%;
+    }
+
+    .product-title {
+      margin-top: 24px;
+      font-size: 2.8rem;
+      line-height: normal;
+      letter-spacing: 1px;
+    }
+    p {
+      margin-top: 24px;
+    }
+  }
+</style>
+
+<style is:global>
+  .category-product-button {
+    max-width: 16rem;
+    margin-top: 40px;
+  }
+
+  /* Tablet */
+
+  @media (max-width: 58.25rem) {
+    .category-product-button {
+      margin-top: 24px;
+    }
+  }
+</style>

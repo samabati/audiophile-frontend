@@ -4,12 +4,21 @@ interface Props {
   text: string;
   textColor?: string;
   border?: string;
+  id?: string;
 }
 
-const { background, text, textColor = "color-p-w", border = "" } = Astro.props;
+const {
+  background,
+  text,
+  textColor = "color-p-w",
+  border = "",
+  id,
+} = Astro.props;
 ---
 
 <button
+  id={id}
   class=`color-p-w font-s-13 bold font-ls-1 p-t-15 p-b-15 p-r-30 p-l-30 ${background} ${textColor} ${border}`
   >{text}</button
 >
+<style></style>
