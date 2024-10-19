@@ -17,9 +17,12 @@ const { display = CardDisplay.LEFT, product, category } = Astro.props;
 
 <div class="padding">
   <section class=`w-100 flex just-s-b ${display}`>
-    <div class="border-r-8 bg-s-g">
-      <Image src={ProductImage} alt="product-image" class="product-image" />
-      <Image src={Shadow} alt="product-shadow" class="product-shadow" />
+    <div class="flex just-c align-c border-r-8 bg-s-g">
+      <img
+        src={`/src/assets/products/${category}/${product.mainImage.name}`}
+        alt="product-image"
+        class="product-image"
+      />
     </div>
     <article class="flex flex-d-c just-c">
       {
@@ -60,25 +63,12 @@ const { display = CardDisplay.LEFT, product, category } = Astro.props;
   }
   section > div {
     width: 49.09%;
-    position: relative;
   }
   article {
     width: 40.45%;
   }
   p {
     opacity: 0.5;
-  }
-  .product-image {
-    top: 65px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .product-shadow {
-    position: absolute;
-    bottom: 25px;
-    left: 50%;
-    transform: translateX(-50%);
   }
 
   /* RIGHT STYLING */
@@ -95,7 +85,6 @@ const { display = CardDisplay.LEFT, product, category } = Astro.props;
     .RIGHT > article {
       order: 2;
     }
-
     .padding {
       padding-top: 120px;
     }
@@ -115,13 +104,9 @@ const { display = CardDisplay.LEFT, product, category } = Astro.props;
     .product-image {
       max-height: 100%;
       max-width: 100%;
-      width: 220px;
+      width: 22rem;
       position: static;
       transform: none;
-    }
-
-    .product-shadow {
-      bottom: 0px;
     }
 
     article {

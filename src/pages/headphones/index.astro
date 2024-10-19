@@ -1,40 +1,41 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Background from "../layouts/Background.astro";
-import Navbar from "../components/shared/Navbar.astro";
-import CategoryHeading from "../components/shared/CategoryHeading.astro";
-import CategoryProductCard from "../components/shared/CategoryProductCard.astro";
-import ProductsList from "../components/shared/ProductsList.astro";
-import { CardDisplay } from "../types/enums/CardDisplay";
-import TextImageSplit from "../components/shared/TextImageSplit.astro";
-import Footer from "../components/shared/Footer.astro";
-import { type StrapiResponse } from "../types/interface/strapi-response";
-import { type Product } from "../types/interface/product";
-import { Category } from "../types/enums/Category";
+import Layout from "../../layouts/Layout.astro";
+import Background from "../../layouts/Background.astro";
+import Navbar from "../../components/shared/Navbar.astro";
+import CategoryHeading from "../../components/shared/CategoryHeading.astro";
+import CategoryProductCard from "../../components/shared/CategoryProductCard.astro";
+import ProductsList from "../../components/shared/ProductsList.astro";
+import { CardDisplay } from "../../types/enums/CardDisplay";
+import TextImageSplit from "../../components/shared/TextImageSplit.astro";
+import Footer from "../../components/shared/Footer.astro";
+import { type StrapiResponse } from "../../types/interface/strapi-response";
+import { type Product } from "../../types/interface/product";
+import { Category } from "../../types/enums/Category";
 
 let products: Product[] = [];
 
 try {
   const res = await fetch(
-    "http://127.0.0.1:1338/api/products?filters[category][name][$eq]=speakers&populate=category&sort=new:desc"
+    "http://127.0.0.1:1338/api/products?filters[category][name][$eq]=headphones&populate=*&sort=new:desc"
   );
   const { data }: StrapiResponse<Product> = await res.json();
   products = data;
+  console.log(data);
 } catch (e) {
   console.log("Error:", e);
 }
 ---
 
-<Layout title="Speakers">
+<Layout title="Headphones">
   <Background className="bg-b">
     <Navbar />
-    <CategoryHeading title="SPEAKERS" />
+    <CategoryHeading title="HEADPHONES" />
   </Background>
   <Background className="bg-s-w category-padding">
     {
       products.map((product: Product, index: number) => (
         <CategoryProductCard
-          category={Category.SPEAKERS}
+          category={Category.HEADPHONES}
           product={product}
           display={index % 2 === 0 ? CardDisplay.LEFT : CardDisplay.RIGHT}
         />
