@@ -1,16 +1,8 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import Background from "../../layouts/Background.astro";
-import Navbar from "../../components/shared/Navbar.astro";
-import CategoryHeading from "../../components/shared/CategoryHeading.astro";
-import CategoryProductCard from "../../components/shared/CategoryProductCard.astro";
-import ProductsList from "../../components/shared/ProductsList.astro";
-import { CardDisplay } from "../../types/enums/CardDisplay";
-import TextImageSplit from "../../components/shared/TextImageSplit.astro";
-import Footer from "../../components/shared/Footer.astro";
+import { Category as CategoryEnum } from "../../types/enums/Category";
 import { type StrapiResponse } from "../../types/interface/strapi-response";
 import { type Product } from "../../types/interface/product";
-import { Category } from "../../types/enums/Category";
+import Category from "../../layouts/Category.astro";
 
 let products: Product[] = [];
 
@@ -20,57 +12,9 @@ try {
   );
   const { data }: StrapiResponse<Product> = await res.json();
   products = data;
-  console.log(data);
 } catch (e) {
   console.log("Error:", e);
 }
 ---
 
-<Layout title="Headphones">
-  <Background className="bg-b">
-    <Navbar />
-    <CategoryHeading title="HEADPHONES" />
-  </Background>
-  <Background className="bg-s-w category-padding">
-    {
-      products.map((product: Product, index: number) => (
-        <CategoryProductCard
-          category={Category.HEADPHONES}
-          product={product}
-          display={index % 2 === 0 ? CardDisplay.LEFT : CardDisplay.RIGHT}
-        />
-      ))
-    }
-    <ProductsList className="category-product-list" />
-    <TextImageSplit className="text-image-split-category-margin" />
-  </Background>
-  <Background className="bg-j-b">
-    <Footer />
-  </Background>
-</Layout>
-
-<style></style>
-
-<style is:global>
-  .category-product-list {
-    margin-top: 160px;
-  }
-  .text-image-split-category-margin {
-    margin-top: 160px;
-  }
-  .category-padding {
-    padding-bottom: 160px;
-  }
-
-  /* Tablet */
-  @media (max-width: 58.25rem) {
-    .category-product-list,
-    .text-image-split-category-margin {
-      margin-top: 120px;
-    }
-
-    .category-padding {
-      padding-bottom: 120px;
-    }
-  }
-</style>
+<Category category={CategoryEnum.HEADPHONES} products={products} />

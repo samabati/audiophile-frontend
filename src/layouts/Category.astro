@@ -1,0 +1,71 @@
+---
+import CategoryHeading from "../components/shared/CategoryHeading.astro";
+import CategoryProductCard from "../components/shared/CategoryProductCard.astro";
+import Footer from "../components/shared/Footer.astro";
+import Navbar from "../components/shared/Navbar.astro";
+import ProductsList from "../components/shared/ProductsList.astro";
+import TextImageSplit from "../components/shared/TextImageSplit.astro";
+import { CardDisplay } from "../types/enums/CardDisplay";
+import { Category as CategoryEnum } from "../types/enums/Category";
+import type { Product } from "../types/interface/product";
+import Background from "./Background.astro";
+import Layout from "./Layout.astro";
+
+interface Props {
+  category: CategoryEnum;
+  products: Product[];
+}
+
+const { products, category } = Astro.props;
+const title = category.split("")[0].toUpperCase() + category.slice(1);
+const heading = title.toUpperCase();
+---
+
+<Layout title={title}>
+  <Background className="bg-b">
+    <Navbar />
+    <CategoryHeading title={heading} />
+  </Background>
+  <Background className="bg-s-w category-padding">
+    {
+      products.map((product: Product, index: number) => (
+        <CategoryProductCard
+          category={category}
+          product={product}
+          display={index % 2 === 0 ? CardDisplay.LEFT : CardDisplay.RIGHT}
+        />
+      ))
+    }
+    <ProductsList className="category-product-list" />
+    <TextImageSplit className="text-image-split-category-margin" />
+  </Background>
+  <Background className="bg-j-b">
+    <Footer />
+  </Background>
+</Layout>
+
+<style></style>
+
+<style is:global>
+  .category-product-list {
+    margin-top: 160px;
+  }
+  .text-image-split-category-margin {
+    margin-top: 160px;
+  }
+  .category-padding {
+    padding-bottom: 160px;
+  }
+
+  /* Tablet */
+  @media (max-width: 58.25rem) {
+    .category-product-list,
+    .text-image-split-category-margin {
+      margin-top: 120px;
+    }
+
+    .category-padding {
+      padding-bottom: 120px;
+    }
+  }
+</style>
