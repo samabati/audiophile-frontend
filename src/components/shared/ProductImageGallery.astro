@@ -1,0 +1,42 @@
+<section class="outline">
+  <img
+    src="/src/assets/products/headphones/xx9-m2-1.jpg"
+    alt="product-image-gallery-1"
+  />
+  <img
+    src="/src/assets/products/headphones/xx9-m2-2.jpg"
+    alt="product-image-gallery-2"
+  />
+  <img
+    src="/src/assets/products/headphones/xx9-m2-3.jpg"
+    alt="product-image-gallery-3"
+  />
+</section>
+
+<style>
+  section {
+    display: grid;
+    margin-top: 160px;
+    grid-template-columns: 41.25% 58.75%;
+    grid-gap: 20px;
+    height: 59.2rem;
+    width: 100%;
+    overflow: hidden;
+  }
+  img {
+    border-radius: 8px;
+  }
+  img:nth-of-type(1) {
+    grid-column: 1/2;
+    width: 100%;
+  }
+  img:nth-of-type(2) {
+    grid-column: 1/2;
+    width: 100%;
+  }
+  img:nth-of-type(3) {
+    grid-column: 2/3;
+    grid-row: 1/4;
+    width: 100%;
+  }
+</style>

@@ -1,87 +1,73 @@
 ---
-import { CardDisplay } from "../../types/enums/CardDisplay";
-import { type Product } from "../../types/interface/product";
 import Button from "./Button.astro";
-import { Category } from "../../types/enums/Category";
-interface Props {
-  category: Category;
-  display: CardDisplay;
-  product: Product;
-}
-
-const { display = CardDisplay.LEFT, product, category } = Astro.props;
+import GoBack from "./GoBack.astro";
+import QuantitySelector from "../../components/shared/QuantitySelector.astro";
+import { formatter } from "../../utils/formatter.ts";
+const price = 1999;
 ---
 
 <div class="padding">
-  <section class=`w-100 flex just-s-b ${display}`>
+  <GoBack href="/headphones" />
+  <section class="w-100 flex just-s-b">
     <div class="flex just-c align-c border-r-8 bg-s-g">
       <img
-        src={`/src/assets/products/${category}/${product.mainImage.name}`}
+        src="/src/assets/products/headphones/xx99-m2-main.jpg"
         alt="product-image"
         class="product-image border-r-8"
       />
     </div>
     <article class="flex flex-d-c just-c">
-      {
-        product.new && (
-          <h2 class="new-product color-c font-s-14 font-ls-10">NEW PRODUCT</h2>
-        )
-      }
+      <h2 class="new-product color-c font-s-14 font-ls-10">NEW PRODUCT</h2>
       <h2
         class="product-title color-b font-s-40 bold font-lh-44 font-ls-1429 m-t-16"
       >
-        {product.name.toUpperCase()}
+        XX99 MARK II HEADPHONES
       </h2>
-      <p class="color-b font-s-15 font-lh-25 m-t-32">
-        {product.description}
+      <p class="description color-b font-s-15 font-lh-25 m-t-32">
+        The new XX99 Mark II headphones is the pinnacle of pristine audio. It
+        redefines your premium headphone experience by reproducing the balanced
+        depth and precision of studio-quality sound.
       </p>
-      <Button
-        id={product.slug}
-        background="bg-c category-product-button"
-        text="SEE PRODUCT"
-      />
+      <p class="price m-t-32 color-b font-s-18 bold">
+        {formatter.format(price)}
+      </p>
+      <div class="product-buttons flex">
+        <QuantitySelector />
+        <Button background="bg-c category-product-button" text="SEE PRODUCT" />
+      </div>
     </article>
   </section>
 </div>
 
-<script define:vars={{ product, category }}>
-  const button = document.getElementById(product.slug);
-  button?.addEventListener("click", () => {
-    window.location.href = `${category}/${product.slug}`;
-  });
-</script>
-
 <style>
   .padding {
-    padding-top: 160px;
+    padding-top: 79px;
   }
   section {
+    margin-top: 56px;
     height: 56rem;
   }
-  section > div {
+  section > div:nth-of-type(1) {
     width: 49.09%;
   }
   article {
     width: 40.45%;
   }
-  p {
+  .description {
     opacity: 0.5;
   }
 
-  /* RIGHT STYLING */
+  .price {
+    letter-spacing: 1.286px;
+  }
 
-  .RIGHT > div {
-    order: 2;
+  .product-buttons {
+    margin-top: 47px;
+    gap: 16px;
   }
 
   /* Tablet */
   @media (max-width: 58.25rem) {
-    .RIGHT > div {
-      order: 1;
-    }
-    .RIGHT > article {
-      order: 2;
-    }
     .padding {
       padding-top: 120px;
     }
@@ -90,7 +76,7 @@ const { display = CardDisplay.LEFT, product, category } = Astro.props;
       height: 100%;
       gap: 52px;
     }
-    section > div {
+    section > div:nth-of-type(1) {
       justify-content: center;
       align-items: center;
       display: flex;
@@ -134,7 +120,7 @@ const { display = CardDisplay.LEFT, product, category } = Astro.props;
       line-height: normal;
       letter-spacing: 1px;
     }
-    p {
+    .description {
       margin-top: 24px;
     }
   }
@@ -143,14 +129,12 @@ const { display = CardDisplay.LEFT, product, category } = Astro.props;
 <style is:global>
   .category-product-button {
     max-width: 16rem;
-    margin-top: 40px;
   }
 
   /* Tablet */
 
   @media (max-width: 58.25rem) {
     .category-product-button {
-      margin-top: 24px;
     }
   }
 </style>

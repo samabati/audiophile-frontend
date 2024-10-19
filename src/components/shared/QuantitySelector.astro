@@ -1,0 +1,32 @@
+<div class="bg-s-g flex align-c">
+  <button id="decrease" class="color-b font-s-13 bold font-ls-1">-</button>
+  <p id="displayNumber" class="color-b font-s-13 bold font-ls-1">1</p>
+  <button id="increase" class="color-b font-s-13 bold font-ls-1">+</button>
+</div>
+
+<style>
+  div {
+    width: 12rem;
+    justify-content: space-around;
+  }
+  button {
+    opacity: 0.25;
+  }
+</style>
+
+<script>
+  let count = 1;
+  let displayNumber = document.getElementById("displayNumber");
+  const increase = document.getElementById("increase");
+  const decrease = document.getElementById("decrease");
+
+  increase?.addEventListener("click", () => {
+    if (!(count + 1 > 10)) count++;
+    displayNumber!.innerText = count.toString();
+  });
+
+  decrease?.addEventListener("click", () => {
+    if (!(count - 1 == 0)) count--;
+    displayNumber!.innerText = count.toString();
+  });
+</script>

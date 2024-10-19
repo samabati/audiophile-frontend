@@ -1,0 +1,15 @@
+---
+interface Props {
+  href: string;
+}
+
+const { href } = Astro.props;
+---
+
+<a href={href} class="color-b font-s-15 font-lh-25">Go Back</a>
+
+<style>
+  a {
+    opacity: 0.5;
+  }
+</style>

@@ -1,0 +1,19 @@
+---
+import Background from "../../layouts/Background.astro";
+import Navbar from "../../components/shared/Navbar.astro";
+import Layout from "../../layouts/Layout.astro";
+import ProductCard from "../../components/shared/ProductCard.astro";
+import ProductFeatures from "../../components/shared/ProductFeatures.astro";
+import ProductImageGallery from "../../components/shared/ProductImageGallery.astro";
+---
+
+<Layout title="Product">
+  <Background className="bg-b">
+    <Navbar />
+  </Background>
+  <Background className="bg-s-w">
+    <ProductCard />
+    <ProductFeatures />
+    <ProductImageGallery />
+  </Background>
+</Layout>
