@@ -1,0 +1,90 @@
+---
+import Button from "./Button.astro";
+---
+
+<section class="outline flex align-c just-c flex-d-c">
+  <h2 class="color-b font-s-32 bold font-lh-36">YOU MAY ALSO LIKE</h2>
+  <div class="outline flex w-100">
+    <article class="h-100 w-100 outline flex flex-d-c align-c just-c">
+      <div class="flex w-100 just-c align-c border-r-8 bg-s-g">
+        <img
+          src="/src/assets/products/headphones/xx99-m2-main.jpg"
+          alt="product-image"
+          class="product-image border-r-8"
+        />
+      </div>
+      <h3 class="font-s-24 color-b bold">XX99 MARK II</h3>
+      <Button background="bg-c recommended-button" text="SEE PRODUCT" />
+    </article>
+    <article class="h-100 w-100 outline flex flex-d-c align-c just-c">
+      <div class="flex w-100 just-c align-c border-r-8 bg-s-g">
+        <img
+          src="/src/assets/products/headphones/xx99-m2-main.jpg"
+          alt="product-image"
+          class="product-image border-r-8"
+        />
+      </div>
+      <h3 class="font-s-24 color-b bold">XX99 MARK II</h3>
+      <Button background="bg-c recommended-button" text="SEE PRODUCT" />
+    </article>
+    <article class="h-100 w-100 outline flex flex-d-c align-c just-c">
+      <div class="flex w-100 just-c align-c border-r-8 bg-s-g">
+        <img
+          src="/src/assets/products/headphones/xx99-m2-main.jpg"
+          alt="product-image"
+          class="product-image border-r-8"
+        />
+      </div>
+      <h3 class="font-s-24 color-b bold">XX99 MARK II</h3>
+      <Button background="bg-c recommended-button" text="SEE PRODUCT" />
+    </article>
+  </div>
+</section>
+
+<style>
+  section {
+    margin-top: 160px;
+    gap: 64px;
+  }
+
+  h2 {
+    letter-spacing: 1.143px;
+  }
+
+  h3 {
+    letter-spacing: 1.714px;
+    margin-top: 40px;
+  }
+
+  section > div {
+    gap: 30px;
+    height: 47.1rem;
+  }
+
+  article > div {
+    height: 31.8rem;
+  }
+  img {
+    width: 80%;
+  }
+
+  /* Tablet */
+  @media (max-width: 58.25rem) {
+    section {
+      gap: 56px;
+      margin-top: 120px;
+    }
+    section > div {
+      gap: 11px;
+    }
+    h3 {
+      text-align: center;
+    }
+  }
+</style>
+
+<style is:global>
+  .recommended-button {
+    margin-top: 32px;
+  }
+</style>

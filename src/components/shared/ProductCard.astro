@@ -33,7 +33,7 @@ const price = 1999;
       </p>
       <div class="product-buttons flex">
         <QuantitySelector />
-        <Button background="bg-c category-product-button" text="SEE PRODUCT" />
+        <Button background="bg-c product-card-button" text="SEE PRODUCT" />
       </div>
     </article>
   </section>
@@ -69,72 +69,87 @@ const price = 1999;
   /* Tablet */
   @media (max-width: 58.25rem) {
     .padding {
-      padding-top: 120px;
+      padding-top: 33px;
     }
     section {
-      flex-direction: column;
-      height: 100%;
-      gap: 52px;
+      margin-top: 24px;
+      gap: 0px;
+      justify-content: space-between;
+      height: 48rem;
     }
     section > div:nth-of-type(1) {
       justify-content: center;
       align-items: center;
       display: flex;
-      height: 35.2rem;
-      width: 100%;
+      width: 40.71%;
     }
-
-    .product-image {
-      max-height: 100%;
-      max-width: 100%;
-      width: 22rem;
-      position: static;
-      transform: none;
-    }
-
     article {
-      text-align: center;
-      align-items: center;
-      width: 100%;
-      height: 30.2rem;
+      width: 49.24%;
+    }
+
+    .new-product {
+      font-size: 1.2rem;
+      letter-spacing: 8.571px;
+    }
+
+    .product-title {
+      font-size: 2.8rem;
+      line-height: 3.2rem;
+      letter-spacing: 1px;
+    }
+
+    .product-buttons {
+      margin-top: 31px;
     }
   }
 
   /* Mobile */
   @media (max-width: 30rem) {
     .padding {
-      padding-top: 64px;
+      padding-top: 16px;
     }
 
     section {
+      flex-direction: column;
+      height: 100%;
       gap: 32px;
     }
 
+    section > div:nth-of-type(1) {
+      width: 100%;
+    }
+
     article {
-      height: 100%;
+      width: 100%;
+    }
+
+    .new-product {
+      font-size: 1.4rem;
+      letter-spacing: 10px;
     }
 
     .product-title {
-      margin-top: 24px;
-      font-size: 2.8rem;
       line-height: normal;
-      letter-spacing: 1px;
     }
-    .description {
+
+    .description,
+    .price,
+    .product-title {
       margin-top: 24px;
     }
   }
 </style>
 
 <style is:global>
-  .category-product-button {
+  .product-card-button {
     max-width: 16rem;
+    flex-shrink: 0;
   }
 
   /* Tablet */
 
   @media (max-width: 58.25rem) {
-    .category-product-button {
+    .product-card-button {
     }
   }
 </style>
