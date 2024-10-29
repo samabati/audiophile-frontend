@@ -1,16 +1,16 @@
 ---
 import Footer from "../components/shared/Footer.astro";
 import Navbar from "../components/shared/Navbar.astro";
-import ProductCard from "../components/shared/ProductCard.astro";
-import ProductFeatures from "../components/shared/ProductFeatures.astro";
-import ProductImageGallery from "../components/shared/ProductImageGallery.astro";
-import ProductRecommendation from "../components/shared/ProductRecommendation.astro";
 import ProductsList from "../components/shared/ProductsList.astro";
 import TextImageSplit from "../components/shared/TextImageSplit.astro";
 import type { Product } from "../types/interface/product";
 import type { Category } from "../types/enums/Category";
 import Background from "./Background.astro";
 import Layout from "./Layout.astro";
+import ProductCard from "../components/product/ProductCard.astro";
+import ProductFeatures from "../components/product/ProductFeatures.astro";
+import ProductImageGallery from "../components/product/ProductImageGallery.astro";
+import ProductRecommendation from "../components/product/ProductRecommendation.astro";
 
 interface Props {
   product: Product;

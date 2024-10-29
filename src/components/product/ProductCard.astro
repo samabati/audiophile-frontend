@@ -1,10 +1,10 @@
 ---
-import Button from "./Button.astro";
-import GoBack from "./GoBack.astro";
 import QuantitySelector from "../../components/shared/QuantitySelector.astro";
 import { formatter } from "../../utils/formatter.ts";
 import type { Product } from "../../types/interface/product";
 import type { Category } from "../../types/enums/Category";
+import Button from "../shared/Button.astro";
+import GoBack from "../shared/GoBack.astro";
 
 interface Props {
   product: Product;
