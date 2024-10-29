@@ -15,7 +15,7 @@ const { product, category } = Astro.props;
 ---
 
 <div class="padding">
-  <GoBack href="/headphones" />
+  <GoBack href={`/${category}`} />
   <section class="w-100 flex just-s-b">
     <div class="flex just-c align-c border-r-8 bg-s-g">
       <img
