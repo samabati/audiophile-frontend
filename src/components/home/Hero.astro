@@ -1,7 +1,5 @@
 ---
 import Button from "../shared/Button.astro";
-import { Image } from "astro:assets";
-import headphones from "../../assets/home/headphones.svg";
 ---
 
 <section class="flex fade-in">
@@ -14,7 +12,7 @@ import headphones from "../../assets/home/headphones.svg";
       Experience natural, lifelike audio and exceptional build quality made for
       the passionate music enthusiast.
     </p>
-    <Button background="hero-button bg-c" text="SEE PRODUCT" />
+    <Button id="hero-button" background="hero-button bg-c" text="SEE PRODUCT" />
   </article>
   <div></div>
 </section>
@@ -134,3 +132,11 @@ import headphones from "../../assets/home/headphones.svg";
     }
   }
 </style>
+
+<script>
+  const button = document.getElementById("hero-button");
+
+  button?.addEventListener("click", () => {
+    window.location.href = "/headphones/xx9-mark2-headphones";
+  });
+</script>

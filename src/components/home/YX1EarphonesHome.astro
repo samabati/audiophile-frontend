@@ -8,6 +8,7 @@ import Button from "../shared/Button.astro";
     <div>
       <h2 class="color-b font-s-28 bold font-ls-2">YX1 EARPHONES</h2>
       <Button
+        id="yx1-button"
         background="bg-trans m-t-32"
         textColor="color-b"
         text="SEE PRODUCT"
@@ -63,3 +64,11 @@ import Button from "../shared/Button.astro";
     }
   }
 </style>
+
+<script>
+  const button = document.getElementById("yx1-button");
+
+  button?.addEventListener("click", () => {
+    window.location.href = "/earphones/yx1-wireless-earphones";
+  });
+</script>

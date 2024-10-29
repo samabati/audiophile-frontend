@@ -6,6 +6,7 @@ import Button from "../shared/Button.astro";
   <div>
     <h2 class="color-b font-s-28 font-ls-2 bold">ZX7 SPEAKER</h2>
     <Button
+      id="zx7-button"
       background="bg-trans m-t-32"
       text="SEE PRODUCT"
       textColor="color-b"
@@ -41,3 +42,11 @@ import Button from "../shared/Button.astro";
     }
   }
 </style>
+
+<script>
+  const button = document.getElementById("zx7-button");
+
+  button?.addEventListener("click", () => {
+    window.location.href = "/speakers/zx7-speaker";
+  });
+</script>
