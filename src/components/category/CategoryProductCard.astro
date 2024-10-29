@@ -3,6 +3,7 @@ import { CardDisplay } from "../../types/enums/CardDisplay";
 import { type Product } from "../../types/interface/product";
 import { Category } from "../../types/enums/Category";
 import Button from "../shared/Button.astro";
+import { getBaseUrl } from "../../utils/getBaseURL";
 interface Props {
   category: Category;
   display: CardDisplay;
@@ -16,7 +17,7 @@ const { display = CardDisplay.LEFT, product, category } = Astro.props;
   <section class=`w-100 flex just-s-b ${display}`>
     <div class="flex just-c align-c border-r-8 bg-s-g">
       <img
-        src={`/src/assets/products/${category}/${product.mainImage.name}`}
+        src={getBaseUrl() + product.mainImage.url}
         alt="product-image"
         class="product-image border-r-8"
       />

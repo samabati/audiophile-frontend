@@ -8,7 +8,7 @@ import { getBaseUrl } from "../../utils/getBaseURL";
 export async function getStaticPaths() {
   const baseUrl = getBaseUrl();
   const res = await fetch(
-    `${baseUrl}/api/products?filters[category][name][$eq]=headphones&populate=*&sort=new:desc`
+    `${baseUrl}/api/products?filters[category][name][$eq]=headphones&populate[orderedImages][populate]=*&populate[boxItems][populate]=*&populate[category]=*&populate[mainImage]=*&sort=new:desc`
   );
   const { data }: StrapiResponse<Product> = await res.json();
 

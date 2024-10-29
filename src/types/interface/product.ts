@@ -18,6 +18,14 @@ export interface Product {
   mainImage: {
     id: number;
     name: string;
+    url: string;
   };
-  orderedImages: { order: number; id: number; fileName: string }[];
+  orderedImages: {
+    order: number;
+    id: number;
+    fileName: string;
+    image: {
+      url: string;
+    };
+  }[];
 }
