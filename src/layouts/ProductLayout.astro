@@ -1,0 +1,61 @@
+---
+import Footer from "../components/shared/Footer.astro";
+import Navbar from "../components/shared/Navbar.astro";
+import ProductCard from "../components/shared/ProductCard.astro";
+import ProductFeatures from "../components/shared/ProductFeatures.astro";
+import ProductImageGallery from "../components/shared/ProductImageGallery.astro";
+import ProductRecommendation from "../components/shared/ProductRecommendation.astro";
+import ProductsList from "../components/shared/ProductsList.astro";
+import TextImageSplit from "../components/shared/TextImageSplit.astro";
+import type { Product } from "../types/interface/product";
+import type { Category } from "../types/enums/Category";
+import Background from "./Background.astro";
+import Layout from "./Layout.astro";
+
+interface Props {
+  product: Product;
+  category: Category;
+}
+
+const { product, category } = Astro.props;
+---
+
+<Layout title={product.name}>
+  <Background className="bg-b">
+    <Navbar />
+  </Background>
+  <Background className="bg-s-w products-background-padding">
+    <ProductCard product={product} category={category} />
+    <ProductFeatures product={product} />
+    <ProductImageGallery product={product} category={category} />
+    <ProductRecommendation product={product} category={category} />
+    <ProductsList className="products-products-list" />
+    <TextImageSplit className="products-text-image-split" />
+  </Background>
+  <Background className="bg-j-b">
+    <Footer />
+  </Background>
+</Layout>
+
+<style is:global>
+  .products-products-list,
+  .products-text-image-split {
+    margin-top: 160px;
+  }
+
+  .products-background-padding {
+    padding-bottom: 160px;
+  }
+
+  /* Tablet */
+  @media (max-width: 58.25rem) {
+    .products-products-list,
+    .products-text-image-split {
+      margin-top: 120px;
+    }
+
+    .products-background-padding {
+      padding-bottom: 120px;
+    }
+  }
+</style>

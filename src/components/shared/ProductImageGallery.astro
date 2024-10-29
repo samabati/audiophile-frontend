@@ -1,16 +1,25 @@
-<section class="outline">
-  <img
-    src="/src/assets/products/headphones/xx9-m2-1.jpg"
-    alt="product-image-gallery-1"
-  />
-  <img
-    src="/src/assets/products/headphones/xx9-m2-2.jpg"
-    alt="product-image-gallery-2"
-  />
-  <img
-    src="/src/assets/products/headphones/xx9-m2-3.jpg"
-    alt="product-image-gallery-3"
-  />
+---
+import type { Category } from "../../types/enums/Category";
+import type { Product } from "../../types/interface/product";
+
+interface Props {
+  product: Product;
+  category: Category;
+}
+
+const { product, category } = Astro.props;
+const orderedImages = product.orderedImages.sort((a, b) => a.order - b.order);
+---
+
+<section>
+  {
+    orderedImages.map((orderedImage, index) => (
+      <img
+        src={`/src/assets/products/${category}/${orderedImage.fileName}`}
+        alt={`product-image-gallery-${index}`}
+      />
+    ))
+  }
 </section>
 
 <style>
@@ -46,6 +55,16 @@
       margin-top: 120px;
       height: 36.8rem;
       grid-template-rows: 50% 50%;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 30rem) {
+    section {
+      margin-top: 88px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
   }
 </style>

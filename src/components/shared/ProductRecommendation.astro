@@ -1,43 +1,58 @@
 ---
+import type { Category } from "../../types/enums/Category";
+import type { Product } from "../../types/interface/product";
+import type { StrapiResponse } from "../../types/interface/strapi-response";
 import Button from "./Button.astro";
+
+interface Props {
+  product: Product;
+  category: Category;
+}
+
+const { product, category } = Astro.props;
+
+let productList: Product[] = [];
+
+const loadProductList = async () => {
+  const res = await fetch("http://127.0.0.1:1338/api/products?populate=*");
+  let { data }: StrapiResponse<Product> = await res.json();
+  data = data.sort((a, b) => {
+    let categoryA = a.category.name === category ? 1 : 0;
+    let categoryB = b.category.name === category ? 1 : 0;
+    return categoryB - categoryA;
+  });
+
+  productList = data.filter((item) => item.id !== product.id).slice(0, 3);
+};
+
+await loadProductList();
 ---
 
-<section class="outline flex align-c just-c flex-d-c">
+<section class="flex align-c just-c flex-d-c">
   <h2 class="color-b font-s-32 bold font-lh-36">YOU MAY ALSO LIKE</h2>
-  <div class="outline flex w-100">
-    <article class="h-100 w-100 outline flex flex-d-c align-c just-c">
-      <div class="flex w-100 just-c align-c border-r-8 bg-s-g">
-        <img
-          src="/src/assets/products/headphones/xx99-m2-main.jpg"
-          alt="product-image"
-          class="product-image border-r-8"
-        />
-      </div>
-      <h3 class="font-s-24 color-b bold">XX99 MARK II</h3>
-      <Button background="bg-c recommended-button" text="SEE PRODUCT" />
-    </article>
-    <article class="h-100 w-100 outline flex flex-d-c align-c just-c">
-      <div class="flex w-100 just-c align-c border-r-8 bg-s-g">
-        <img
-          src="/src/assets/products/headphones/xx99-m2-main.jpg"
-          alt="product-image"
-          class="product-image border-r-8"
-        />
-      </div>
-      <h3 class="font-s-24 color-b bold">XX99 MARK II</h3>
-      <Button background="bg-c recommended-button" text="SEE PRODUCT" />
-    </article>
-    <article class="h-100 w-100 outline flex flex-d-c align-c just-c">
-      <div class="flex w-100 just-c align-c border-r-8 bg-s-g">
-        <img
-          src="/src/assets/products/headphones/xx99-m2-main.jpg"
-          alt="product-image"
-          class="product-image border-r-8"
-        />
-      </div>
-      <h3 class="font-s-24 color-b bold">XX99 MARK II</h3>
-      <Button background="bg-c recommended-button" text="SEE PRODUCT" />
-    </article>
+
+  <div class="flex w-100">
+    {
+      productList.map((product) => (
+        <article class="h-100 w-100 flex flex-d-c align-c just-c">
+          <div class="flex w-100 just-c align-c border-r-8 bg-s-g">
+            <img
+              src={`/src/assets/products/${product.category.name}/${product.mainImage.name}`}
+              alt="product-image"
+              class="product-image border-r-8"
+            />
+          </div>
+          <h3 class="font-s-24 color-b bold">
+            {product.name.split(" ")[0].toUpperCase()}
+          </h3>
+          <Button
+            id={product.id.toString()}
+            background="bg-c recommended-button"
+            text="SEE PRODUCT"
+          />
+        </article>
+      ))
+    }
   </div>
 </section>
 
@@ -81,6 +96,33 @@ import Button from "./Button.astro";
       text-align: center;
     }
   }
+
+  /* Mobile */
+  @media (max-width: 30rem) {
+    h2 {
+      font-size: 2.4rem;
+    }
+    section {
+      gap: 40px;
+    }
+
+    section > div {
+      flex-direction: column;
+      height: 100%;
+      gap: 56px;
+    }
+    article > div {
+      height: 12rem;
+    }
+    article > div > img {
+      height: 12rem;
+      width: auto;
+    }
+
+    h3 {
+      margin-top: 32px;
+    }
+  }
 </style>
 
 <style is:global>
@@ -88,3 +130,18 @@ import Button from "./Button.astro";
     margin-top: 32px;
   }
 </style>
+
+<script define:vars={{ productList }}>
+  productButtons = productList.map((product) =>
+    document.getElementById(product.id)
+  );
+
+  productButtons.forEach((product) => {
+    product.addEventListener("click", (e) => {
+      const id = e.target.id;
+      const product = productList.find((product) => product.id == id);
+      window.location.href =
+        window.location.origin + `/${product.category.name}/${product.slug}`;
+    });
+  });
+</script>

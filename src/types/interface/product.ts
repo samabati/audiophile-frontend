@@ -19,5 +19,5 @@ export interface Product {
     id: number;
     name: string;
   };
-  orderedImages: { order: number; id: number }[];
+  orderedImages: { order: number; id: number; fileName: string }[];
 }

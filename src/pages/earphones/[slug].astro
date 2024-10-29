@@ -1,0 +1,28 @@
+---
+import ProductLayout from "../../layouts/ProductLayout.astro";
+import { type StrapiResponse } from "../../types/interface/strapi-response";
+import { type Product } from "../../types/interface/product";
+import { Category } from "../../types/enums/Category";
+
+export async function getStaticPaths() {
+  const res = await fetch(
+    "http://127.0.0.1:1338/api/products?filters[category][name][$eq]=earphones&populate=*&sort=new:desc"
+  );
+  const { data }: StrapiResponse<Product> = await res.json();
+
+  return data.map((product: Product) => {
+    return {
+      params: { slug: product.slug },
+      props: { product },
+    };
+  });
+}
+
+interface Props {
+  product: Product;
+}
+
+const { product } = Astro.props;
+---
+
+<ProductLayout product={product} category={Category.EARPHONES} />
