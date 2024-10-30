@@ -1,4 +1,15 @@
 ---
+/* Category Layout
+   This layout is used for each category page within the application.
+   Each category page passes in its specific products and the category 
+   identifier (enum), allowing this layout to dynamically build and display 
+   the content for that category.
+   
+   Props:
+   - category (enum): used for category heading and product navigation inside product card component
+   - products (product array): used to generate product cards. Products are sorted beginning with new products.
+*/
+
 import CategoryHeading from "../components/category/CategoryHeading.astro";
 import CategoryProductCard from "../components/category/CategoryProductCard.astro";
 import Footer from "../components/shared/Footer.astro";
@@ -18,13 +29,12 @@ interface Props {
 
 const { products, category } = Astro.props;
 const title = category.split("")[0].toUpperCase() + category.slice(1);
-const heading = title.toUpperCase();
 ---
 
 <Layout title={title}>
   <Background className="bg-b">
     <Navbar />
-    <CategoryHeading title={heading} />
+    <CategoryHeading category={category} />
   </Background>
   <Background className="bg-s-w category-padding">
     {

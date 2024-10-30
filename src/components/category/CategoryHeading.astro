@@ -1,13 +1,17 @@
 ---
+import type { Category } from "../../types/enums/Category";
+
 interface Props {
-  title: string;
+  category: Category;
 }
 
-const { title } = Astro.props;
+const { category } = Astro.props;
 ---
 
 <header class="flex just-c align-c p-t-98 p-b-98">
-  <h1 class="color-p-w font-s-40 bold font-lh-44 font-ls-1429">{title}</h1>
+  <h1 class="color-p-w font-s-40 bold font-lh-44 font-ls-1429">
+    {category.toUpperCase()}
+  </h1>
 </header>
 
 <style>

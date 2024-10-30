@@ -1,4 +1,8 @@
 ---
+/* Headphones Slug Page
+   Fetches all Strapi products matching headphones category and generates dynamic routes based on the product slug
+   Each individual product is then passed to the product layout to build individual product page 
+*/
 import ProductLayout from "../../layouts/ProductLayout.astro";
 import { type StrapiResponse } from "../../types/interface/strapi-response";
 import { type Product } from "../../types/interface/product";

@@ -1,23 +1,33 @@
 ---
+/* Background Component
+  This component wraps around the entire application to ensure consistent
+  padding on the left and right across all components
+  By centralizing padding in this component, it helps maintain a
+  uniform layout and spacing throughout the app.
+
+  Props:
+  - className (string): allows parent component to specify background color and padding, margin etc.
+*/
+
 interface Props {
   className: string;
 }
 const { className } = Astro.props;
 ---
 
-<div class=`outter ${className}`>
-  <div class="inner">
+<div class=`outter-container ${className}`>
+  <div class="inner-container">
     <slot />
   </div>
 </div>
 
 <style>
-  .outter {
+  .outter-container {
     padding-left: 11.81%;
     padding-right: 11.81%;
     width: 100%;
   }
-  .inner {
+  .inner-container {
     width: 100%;
     max-width: 110rem;
     margin-left: auto;
@@ -26,7 +36,7 @@ const { className } = Astro.props;
 
   /* Tablet */
   @media (max-width: 58.25rem) {
-    .outter {
+    .outter-container {
       padding-left: 5.21%;
       padding-right: 5.21%;
     }
@@ -34,7 +44,7 @@ const { className } = Astro.props;
 
   /* Mobile */
   @media (max-width: 30rem) {
-    .outter {
+    .outter-container {
       padding-left: 6.4%;
       padding-right: 6.4%;
     }
