@@ -15,7 +15,7 @@ const baseUrl = getBaseUrl();
 
 try {
   const res = await fetch(
-    `${baseUrl}/api/products?filters[category][name][$eq]=headphones&populate=*&sort=new:desc`
+    `${baseUrl}/api/products?filters[category][name][$eq]=headphones&populate=*&sort=new`
   );
   const { data }: StrapiResponse<Product> = await res.json();
   products = data;
