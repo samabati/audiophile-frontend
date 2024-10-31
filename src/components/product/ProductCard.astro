@@ -4,7 +4,6 @@ import type { Product } from "../../types/interface/product";
 import type { Category } from "../../types/enums/Category";
 import Button from "../shared/Button.astro";
 import GoBack from "../shared/GoBack.astro";
-import { getBaseUrl } from "../../utils/getBaseURL";
 import QuantitySelector from "./QuantitySelector.astro";
 
 interface Props {
@@ -20,7 +19,7 @@ const { product, category } = Astro.props;
   <section class="w-100 flex just-s-b">
     <div class="flex just-c align-c border-r-8 bg-s-g">
       <img
-        src={getBaseUrl() + product.mainImage.url}
+        src={product.mainImage.url}
         alt="product-image"
         class="product-image border-r-8"
       />
