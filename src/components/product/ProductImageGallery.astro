@@ -1,7 +1,5 @@
 ---
 import type { Product } from "../../types/interface/product";
-import { getBaseUrl } from "../../utils/getBaseURL";
-
 interface Props {
   product: Product;
 }
@@ -14,7 +12,7 @@ const orderedImages = product.orderedImages.sort((a, b) => a.order - b.order);
   {
     orderedImages.map((orderedImage, index) => (
       <img
-        src={getBaseUrl() + orderedImage.image.url}
+        src={orderedImage.image.url}
         alt={`product-image-gallery-${index}`}
       />
     ))
